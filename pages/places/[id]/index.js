@@ -38,7 +38,6 @@ export default function DetailsPage() {
     isLoading,
     error,
   } = useSWR(`/api/places/${id}`);
-
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   function deletePlace() {
@@ -76,7 +75,7 @@ export default function DetailsPage() {
           Delete
         </StyledButton>
       </ButtonContainer>
-      <Comments locationName={place.name} comments={comments} />
+      <Comments locationName={place.name} comments={place.comments} />
     </>
   );
 }
