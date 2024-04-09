@@ -17,12 +17,13 @@ export default async function handler(request, response) {
         return response.status(404).json({ status: "Not found" });
       }
       response.status(200).json({ place: place});
-      case "DELETE":
-        try {await Place.findByIdAndDelete(id);
+      break
+    case "DELETE":
+      try {await Place.findByIdAndDelete(id);
         response.status(200).json({status: 'This place has been deleted'});
-        } catch (error) {
-          return response.status(500).json({status: 'unable to delete place'})
-        }
+      } catch (error) {
+        return response.status(500).json({status: 'unable to delete place'})
+      }
       break
   }
 }
