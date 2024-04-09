@@ -18,13 +18,13 @@ export default function Comments({ id, locationName, comments }) {
     }
   `;
 
-  const { mutate } = useSWR(`/api/comments/${id}`);
+  const { mutate } = useSWR(`/api/places/${id}`);
 
   async function handleSubmitComment(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const commentData = Object.fromEntries(formData);
-    commentData.placeId = id
+    commentData.placeId = id;
 
     const response = await fetch("/api/comments", {
       method: "POST",
@@ -36,7 +36,7 @@ export default function Comments({ id, locationName, comments }) {
     if (response.ok) {
       mutate();
     }
-  };
+  }
 
   return (
     <Article>
