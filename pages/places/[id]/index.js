@@ -42,14 +42,14 @@ export default function DetailsPage() {
 
   async function deletePlace() {
     await fetch(`/api/places/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
     });
-    router.push('/');
+    router.push("/");
   }
 
   return (
     <>
-      <Link href={'/'} passHref legacyBehavior>
+      <Link href={"/"} passHref legacyBehavior>
         <StyledLink justifySelf="start">back</StyledLink>
       </Link>
       <ImageContainer>
