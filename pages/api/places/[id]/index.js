@@ -2,9 +2,8 @@ import dbConnect from "../../../../db/connect";
 import Place from "../../../../db/models/Places";
 
 export default async function handler(request, response) {
-  await dbConnect()
+  await dbConnect();
   const { id } = request.query;
-
 
   if (!id) {
     return;
@@ -21,10 +20,11 @@ export default async function handler(request, response) {
       if (!place) {
         return response.status(404).json({ status: "Not found" });
       }
-    
-      response.status(200).json({ place: place});
+      response.status(200).json({ place: place });
+      break;
+    case "PATCH":
+      const updatedPlace = await Place.findByIdAndUpdate(id, request.body);
+      response.status(200).json({ status: "Place successfully updated!" });
+      break;
   }
-
-
-
 }
