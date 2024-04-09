@@ -68,7 +68,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
         id="description"
         cols="30"
         rows="10"
-        defaultValue={defaultData?.description}
+        defaultValue={defaultData?.place.description}
       ></Textarea>
       <StyledButton type="submit">
         {defaultData ? "Update place" : "Add place"}
