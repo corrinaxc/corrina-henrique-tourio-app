@@ -39,28 +39,28 @@ export default function Form({ onSubmit, formName, defaultData }) {
         id="name"
         name="name"
         type="text"
-        defaultValue={defaultData?.name}
+        defaultValue={defaultData?.place.name}
       />
       <Label htmlFor="image-url">Image Url</Label>
       <Input
         id="image-url"
         name="image"
         type="text"
-        defaultValue={defaultData?.image}
+        defaultValue={defaultData?.place.image}
       />
       <Label htmlFor="location">Location</Label>
       <Input
         id="location"
         name="location"
         type="text"
-        defaultValue={defaultData?.location}
+        defaultValue={defaultData?.place.location}
       />
       <Label htmlFor="map-url">Map Url</Label>
       <Input
         id="map-url"
         name="mapURL"
         type="text"
-        defaultValue={defaultData?.mapURL}
+        defaultValue={defaultData?.place.mapURL}
       />
       <Label htmlFor="description">Description</Label>
       <Textarea
