@@ -3,17 +3,15 @@ import Comment from "../../../db/models/Comments";
 import Place from "../../../db/models/Places";
 
 export default async function handler(request, response) {
-    await dbConnect()
-  
-    switch (request.method) {
-      case "POST":
-        const comment = await Comment.create(request.body);
-        await Place.findByIdAndUpdate(request.body.placeId, {$push:{comments:comment._id}})
-        console.log("COMMENT ID ", comment._id);
-        // console.log("--------",place.schema.comments);
-        // place.comments.push(comment.id)
-        // place.save()
-        response.status(200).json({ comment: comment});
-        break
-    }
+  await dbConnect();
+
+  switch (request.method) {
+    case "POST":
+      const comment = await Comment.create(request.body);
+      await Place.findByIdAndUpdate(request.body.placeId, {
+        $push: { comments: comment._id },
+      });
+      response.status(200).json({ comment: comment });
+      break;
   }
+}
